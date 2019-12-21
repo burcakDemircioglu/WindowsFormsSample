@@ -28,6 +28,7 @@ namespace SampleCSharp
             showMessageButton.Top = 75;
             showMessageButton.Width = 200;
             showMessageButton.Text = "Show Message";
+            showMessageButton.Click += ClickHandler;
             this.Controls.Add(showMessageButton);
 
             messageLabel = new Label();
@@ -36,6 +37,11 @@ namespace SampleCSharp
             messageLabel.Width = 200;
             messageLabel.Text = "[Label]";
             this.Controls.Add(messageLabel);
+        }
+
+        private void ClickHandler(object sender, EventArgs e)
+        {
+            messageLabel.Text = messageTextBox.Text;
         }
     }
 }
