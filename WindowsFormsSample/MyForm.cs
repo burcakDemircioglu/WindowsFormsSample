@@ -19,8 +19,6 @@ namespace SampleCSharp
 
         public MyForm() : base()
         {
-
-
             InitializeComponent();
         }
 
@@ -74,8 +72,8 @@ namespace SampleCSharp
             // 
             // listBox1
             // 
-            this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Location = new System.Drawing.Point(266, 25);
@@ -117,9 +115,9 @@ namespace SampleCSharp
             this.Name = "MyForm";
             this.Text = "My Form";
             this.Load += new System.EventHandler(this.MyForm_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MyForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         private void MyForm_Load(object sender, EventArgs e)
@@ -130,8 +128,29 @@ namespace SampleCSharp
             listBox1.Items.Add("Peaches");
         }
 
+        private void MyForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            string msg = "Are you sure you want to close?";
+
+
+            if(MessageBox.Show(msg, "Sure?", MessageBoxButtons.YesNo) == DialogResult.No) {
+                e.Cancel = true;
+            }
+
+            listBox1.Items.Add("Oranges");
+            listBox1.Items.Add("Grapes");
+            listBox1.Items.Add("Bananas");
+            listBox1.Items.Add("Peaches");
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
+            if (listBox1.SelectedIndex != 0)
+            {
+                string msg = "Please select an item from the list box";
+                MessageBox.Show(msg, "Alert!");
+            }
+
             label1.Text = listBox1.Text;
         }
     }
