@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsSample;
 
 namespace SampleCSharp
 {
@@ -130,17 +131,15 @@ namespace SampleCSharp
 
         private void MyForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            string msg = "Are you sure you want to close?";
+            var dialog = new ConfirmDialog();
 
+            //string msg = "Are you sure you want to close?";
+            //if(MessageBox.Show(msg, "Sure?", MessageBoxButtons.YesNo) == DialogResult.No) 
 
-            if(MessageBox.Show(msg, "Sure?", MessageBoxButtons.YesNo) == DialogResult.No) {
+            if (dialog.ShowDialog() == DialogResult.No)
+            {
                 e.Cancel = true;
             }
-
-            listBox1.Items.Add("Oranges");
-            listBox1.Items.Add("Grapes");
-            listBox1.Items.Add("Bananas");
-            listBox1.Items.Add("Peaches");
         }
 
         private void button2_Click(object sender, EventArgs e)
