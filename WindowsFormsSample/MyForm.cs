@@ -31,13 +31,13 @@ namespace SampleCSharp
 
         private void InitializeComponent()
         {
-            this.messageTextBox = new TextBox();
-            this.showMessageButton = new Button();
-            this.messageLabel = new Label();
-            this.button1 = new Button();
-            this.listBox1 = new ListBox();
-            this.button2 = new Button();
-            this.label1 = new Label();
+            this.messageTextBox = new System.Windows.Forms.TextBox();
+            this.showMessageButton = new System.Windows.Forms.Button();
+            this.messageLabel = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // messageTextBox
@@ -74,6 +74,9 @@ namespace SampleCSharp
             // 
             // listBox1
             // 
+            this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Location = new System.Drawing.Point(266, 25);
             this.listBox1.Name = "listBox1";
@@ -82,6 +85,7 @@ namespace SampleCSharp
             // 
             // button2
             // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button2.Location = new System.Drawing.Point(266, 141);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
@@ -92,6 +96,7 @@ namespace SampleCSharp
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(266, 198);
             this.label1.Name = "label1";
