@@ -31,13 +31,13 @@ namespace SampleCSharp
 
         private void InitializeComponent()
         {
-            this.messageTextBox = new System.Windows.Forms.TextBox();
-            this.showMessageButton = new System.Windows.Forms.Button();
-            this.messageLabel = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.messageTextBox = new TextBox();
+            this.showMessageButton = new Button();
+            this.messageLabel = new Label();
+            this.button1 = new Button();
+            this.listBox1 = new ListBox();
+            this.button2 = new Button();
+            this.label1 = new Label();
             this.SuspendLayout();
             // 
             // messageTextBox
