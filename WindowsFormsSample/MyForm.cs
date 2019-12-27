@@ -177,6 +177,7 @@ namespace SampleCSharp
             this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
             this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.newToolStripMenuItem.Text = "&New";
+            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // openToolStripMenuItem
             // 
@@ -217,6 +218,7 @@ namespace SampleCSharp
             this.NewToolStripButton.Size = new System.Drawing.Size(23, 22);
             this.NewToolStripButton.Text = "toolStripButton1";
             this.NewToolStripButton.ToolTipText = "New";
+            this.NewToolStripButton.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // toolStripButton2
             // 
@@ -324,6 +326,11 @@ namespace SampleCSharp
             }
 
             label1.Text = listBox1.Text;
+        }
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("You clicked New");
         }
     }
 }
