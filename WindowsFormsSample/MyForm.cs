@@ -12,7 +12,6 @@ namespace SampleCSharp
     {
         private TextBox messageTextBox;
         private Label messageLabel;
-        private Button button1;
         private ListBox listBox1;
         private Button button2;
         private Label label1;
@@ -31,6 +30,8 @@ namespace SampleCSharp
         private ToolStripButton toolStripButton4;
         private ToolStripButton toolStripButton5;
         private ToolStripButton toolStripButton6;
+        private PersonControl personControl1;
+        private Button button1;
         private Button showMessageButton;
 
         public MyForm() : base()
@@ -49,17 +50,16 @@ namespace SampleCSharp
             this.messageTextBox = new System.Windows.Forms.TextBox();
             this.showMessageButton = new System.Windows.Forms.Button();
             this.messageLabel = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.NewToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
@@ -68,6 +68,8 @@ namespace SampleCSharp
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
+            this.personControl1 = new WindowsFormsSample.PersonControl();
+            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -81,28 +83,20 @@ namespace SampleCSharp
             // 
             // showMessageButton
             // 
-            this.showMessageButton.Location = new System.Drawing.Point(25, 118);
+            this.showMessageButton.Location = new System.Drawing.Point(25, 101);
             this.showMessageButton.Name = "showMessageButton";
             this.showMessageButton.Size = new System.Drawing.Size(200, 23);
             this.showMessageButton.TabIndex = 1;
             this.showMessageButton.Text = "Show Message";
+            this.showMessageButton.Click += new System.EventHandler(this.showMessageButton_Click);
             // 
             // messageLabel
             // 
-            this.messageLabel.Location = new System.Drawing.Point(25, 168);
+            this.messageLabel.Location = new System.Drawing.Point(25, 133);
             this.messageLabel.Name = "messageLabel";
             this.messageLabel.Size = new System.Drawing.Size(200, 23);
             this.messageLabel.TabIndex = 2;
             this.messageLabel.Text = "[Label]";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(80, 269);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // listBox1
             // 
@@ -118,7 +112,7 @@ namespace SampleCSharp
             // button2
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button2.Location = new System.Drawing.Point(266, 184);
+            this.button2.Location = new System.Drawing.Point(266, 170);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 4;
@@ -130,7 +124,7 @@ namespace SampleCSharp
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(266, 241);
+            this.label1.Location = new System.Drawing.Point(266, 202);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 5;
@@ -158,24 +152,12 @@ namespace SampleCSharp
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "&File";
             // 
-            // saveAsToolStripMenuItem
-            // 
-            this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.saveAsToolStripMenuItem.Text = "Save &As";
-            // 
-            // editToolStripMenuItem
-            // 
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
-            this.editToolStripMenuItem.Text = "&Edit";
-            // 
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Image = global::WindowsFormsSample.Properties.Resources.Document_16x;
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
             this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.newToolStripMenuItem.Text = "&New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
@@ -183,15 +165,27 @@ namespace SampleCSharp
             // 
             this.openToolStripMenuItem.Image = global::WindowsFormsSample.Properties.Resources.Open_16x;
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.openToolStripMenuItem.Text = "&Open";
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Image = global::WindowsFormsSample.Properties.Resources.Save_16x;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.saveToolStripMenuItem.Text = "&Save";
+            // 
+            // saveAsToolStripMenuItem
+            // 
+            this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.saveAsToolStripMenuItem.Text = "Save &As";
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.editToolStripMenuItem.Text = "&Edit";
             // 
             // toolStrip1
             // 
@@ -270,9 +264,28 @@ namespace SampleCSharp
             this.toolStripButton6.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton6.Text = "toolStripButton6";
             // 
+            // personControl1
+            // 
+            this.personControl1.Location = new System.Drawing.Point(28, 248);
+            this.personControl1.Name = "personControl1";
+            this.personControl1.Size = new System.Drawing.Size(219, 153);
+            this.personControl1.TabIndex = 8;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(150, 407);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // MyForm
             // 
             this.ClientSize = new System.Drawing.Size(484, 461);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.personControl1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
@@ -280,7 +293,6 @@ namespace SampleCSharp
             this.Controls.Add(this.messageTextBox);
             this.Controls.Add(this.showMessageButton);
             this.Controls.Add(this.messageLabel);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MyForm";
@@ -302,6 +314,15 @@ namespace SampleCSharp
             listBox1.Items.Add("Grapes");
             listBox1.Items.Add("Bananas");
             listBox1.Items.Add("Peaches");
+
+            var person = new Person()
+            {
+                FirstName = "Burcak",
+                LastName = "Kam",
+                Age = 28
+            };
+
+            personControl1.Person = person;
         }
 
         private void MyForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -319,7 +340,7 @@ namespace SampleCSharp
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (listBox1.SelectedIndex != 0)
+            if (listBox1.SelectedIndex == -1)
             {
                 string msg = "Please select an item from the list box";
                 MessageBox.Show(msg, "Alert!");
@@ -331,6 +352,16 @@ namespace SampleCSharp
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("You clicked New");
+        }
+
+        private void showMessageButton_Click(object sender, EventArgs e)
+        {
+            messageLabel.Text = messageTextBox.Text;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(personControl1.Person.LastName);
         }
     }
 }
