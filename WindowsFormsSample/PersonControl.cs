@@ -29,10 +29,10 @@ namespace WindowsFormsSample
                 return _person;
             }
             set {
+                _person = value;
                 FirstNameTextBox.Text = _person.FirstName;
                 LastNameTextBox.Text = _person.LastName;
                 AgeTextBox.Text = _person.Age.ToString();
-                _person = value; 
             } 
         }
     }
